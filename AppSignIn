@@ -1,0 +1,40 @@
+
+--SIGN IN APP
+we can use Android Studio to manually generate signed APKs, either one at a time, or for multiple build variants at once. 
+Instead of manually signing APKs, you can also configure your Gradle build settings to handle signing automatically during the build process. 
+
+To manually sign your APK for release in Android Studio, follow these steps:
+	 1.In the menu bar, click Build > Generate Signed APK.
+	 2.Select the module you would like to release from the drop down, and click Next.
+	 3.If you already have a keystore, go to step 5. If you want to create a new keystore, click Create new.
+	 4.On the New Key Store window, provide the following information for your keystore and key
+	Key store path: Select the location where your keystore should be created.
+	Password: Create and confirm a secure password for your keystore.
+
+Key
+--Alias: Enter an identifying name for your key.
+--Password: Create and confirm a secure password for your key. This should be different from the password you chose for your keystore
+--Validity (years): Set the length of time in years that your key will be valid. Your key should be valid for at least 25 years, 
+			so you can sign app updates with the same key through the lifespan of your app.
+--Certificate: Enter some information about yourself for your certificate. This information is not displayed in your app, 
+			but is included in your certificate as part of the APK.Once you complete the form, click OK.
+
+	 5.On the Generate Signed APK Wizard window, select a keystore, a private key, and enter the passwords for both.
+	 (If you created your keystore in the last step, these fields are already populated for you.) Then click Next.
+	 6.On the next window, select a destination for the signed APK(s), select the build type, (if applicable) choose the product flavor(s), and click Finish.
+
+--When the process completes, you will find your signed APK in the destination folder you selected above. 
+	You may now distribute your signed APK through an app marketplace like the Google Play Store, or using the mechanism of your choice.
+
+--CONFIGURE THE BUILD PROCESS TO AUTOMATICALLY SIGN OUR APK
+	In Android Studio, you can configure your project to sign your release APK automatically during the build process by creating a signing configuration and assigning it to your release build type. 
+	A signing configuration consists of a keystore location, keystore password, key alias, and key password.
+  --To create a signing configuration and assign it to your release build type using Android Studio, use the following steps:
+	1.In the Project window, right click on your app and click Open Module Settings.
+	2.On the Project Structure window, under Modules in the left panel, click the module you would like to sign.
+	3.Click the Signing tab, then click Add+.
+	4.Select your keystore file, enter a name for this signing configuration (as you may create more than one), and enter the required information.
+	5.Click the Build Types tab.
+	6.Click the release build.
+	7.Under Signing Config, select the signing configuration you just created.
+	8.Click OK.
